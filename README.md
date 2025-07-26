@@ -9,7 +9,6 @@ An interactive tool to explore and understand the N-Queens problem through engag
 - 🟩🟥 Move Logging:
 - ✅ Green: accepted moves
 - ❌ Red: rejected moves
-- 📊 Progress Tracker: See how close you are to completion
 - 🧠 Solution Display: View all valid board configurations for N
 
 🛠️ Getting Started
