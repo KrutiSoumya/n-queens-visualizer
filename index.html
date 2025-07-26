@@ -15,11 +15,10 @@
       <h1>
         <i class="fas fa-chess-queen"></i> N-Queens Visualiser
       </h1>
-      <label class="toggle-container">
-        <input type="checkbox" id="themeSwitch" />
-        <span class="slider-switch"></span>
+      <div class="toggle-wrapper" id="darkModeToggle">
+        <div class="slider-switch"></div>
         <span class="mode-label">Dark Mode</span>
-      </label>
+      </div>
     </header>
 
     <div class="n-queen">
@@ -44,7 +43,11 @@
         </button>
       </div>
 
-      <div class="slider-container">
+      <div class="slider-wrapper">
+        <div class="slider-labels">
+          <span>Slow</span>
+          <span>Fast</span>
+        </div>
         <input
           class="slider"
           id="slider"
@@ -57,8 +60,10 @@
     </div>
 
     <div class="queen-arrangement" id="queen-arrangement"></div>
-    <div id="n-queen-board"></div>
-    <div class="comment-box" id="comment-box"></div>
+    <div class="main-container">
+      <div id="n-queen-board"></div>
+      <div class="comment-box" id="comment-box"></div>
+    </div>
 
     <script src="app.js"></script>
   </body>

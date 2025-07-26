@@ -2,30 +2,23 @@
 
 const numberbox = document.getElementById("numberbox");
 const slider = document.getElementById("slider");
-const progressBar = document.getElementById("progress-bar");
 const playButton = document.getElementById("play-button");
 const pauseButton = document.getElementById("pause-button");
 const commentBox = document.getElementById("comment-box");
-const themeSwitch = document.getElementById("themeSwitch");
+const themeToggle = document.querySelector(".slider-switch");
 
 const queen = '<i class="fas fa-chess-queen" style="color:#000"></i>';
+const arrangements = [0, 1, 0, 0, 2, 10, 4, 40, 92];
 
-let n, speed, tempSpeed, q, Board = 0;
-let paused = false;
-
-const array = [0, 1, 0, 0, 2, 10, 4, 40, 92];
+let q, n, Board = 0, speed = 400, paused = false;
 let pos = {};
 
-speed = (100 - slider.value) * 10;
-tempSpeed = speed;
-
 slider.oninput = function () {
-  progressBar.style.width = this.value + "%";
   speed = (100 - this.value) * 10;
 };
 
-themeSwitch.onchange = function () {
-  document.body.classList.toggle("dark", this.checked);
+themeToggle.onclick = () => {
+  document.body.classList.toggle("dark");
 };
 
 function logMove(message, type) {
@@ -61,10 +54,8 @@ class Queen {
     currentColumn.innerHTML = queen;
     await this.delay();
 
-    // Same column
     for (let i = r - 1; i >= 0; --i) {
-      const row = table.firstChild.childNodes[i];
-      const column = row.getElementsByTagName("td")[col];
+      const column = table.firstChild.childNodes[i].getElementsByTagName("td")[col];
       if (column.innerHTML == queen) {
         column.style.backgroundColor = "#FB5607";
         currentColumn.innerHTML = "-";
@@ -73,10 +64,8 @@ class Queen {
       }
     }
 
-    // Upper left diagonal
     for (let i = r - 1, j = col - 1; i >= 0 && j >= 0; --i, --j) {
-      const row = table.firstChild.childNodes[i];
-      const column = row.getElementsByTagName("td")[j];
+      const column = table.firstChild.childNodes[i].getElementsByTagName("td")[j];
       if (column.innerHTML == queen) {
         column.style.backgroundColor = "#FB5607";
         currentColumn.innerHTML = "-";
@@ -85,10 +74,8 @@ class Queen {
       }
     }
 
-    // Upper right diagonal
     for (let i = r - 1, j = col + 1; i >= 0 && j < n; --i, ++j) {
-      const row = table.firstChild.childNodes[i];
-      const column = row.getElementsByTagName("td")[j];
+      const column = table.firstChild.childNodes[i].getElementsByTagName("td")[j];
       if (column.innerHTML == queen) {
         column.style.backgroundColor = "#FB5607";
         currentColumn.innerHTML = "-";
@@ -102,8 +89,8 @@ class Queen {
   };
 
   clearColor = async (board) => {
+    const table = document.getElementById(`table-${this.uuid[board]}`);
     for (let j = 0; j < n; ++j) {
-      const table = document.getElementById(`table-${this.uuid[board]}`);
       const row = table.firstChild.childNodes[j];
       for (let k = 0; k < n; ++k)
         (j + k) & 1
@@ -174,29 +161,27 @@ playButton.onclick = async function () {
 
   const para = document.createElement("p");
   para.setAttribute("class", "queen-info");
-  para.innerHTML = `For ${n}x${n} board, ${array[n]} arrangements are possible.`;
+  para.innerHTML = `For ${n}x${n} board, ${arrangements[n]} arrangements are possible.`;
   arrangement.appendChild(para);
 
   q = new Queen();
 
-  for (let i = 0; i < array[n]; ++i) {
+  for (let i = 0; i < arrangements[n]; ++i) {
     q.uuid.push(Math.random());
     let div = document.createElement("div");
     let table = document.createElement("table");
     let header = document.createElement("h4");
     header.innerHTML = `Board ${i + 1}`;
     table.setAttribute("id", `table-${q.uuid[i]}`);
-    header.setAttribute("id", `paragraph-${i}`);
-    chessBoard.appendChild(div);
     div.appendChild(header);
     div.appendChild(table);
+    chessBoard.appendChild(div);
   }
 
-  for (let k = 0; k < array[n]; ++k) {
+  for (let k = 0; k < arrangements[n]; ++k) {
     let table = document.getElementById(`table-${q.uuid[k]}`);
     for (let i = 0; i < n; ++i) {
       const row = table.insertRow(i);
-      row.setAttribute("id", `Row${i}`);
       for (let j = 0; j < n; ++j) {
         const col = row.insertCell(j);
         (i + j) & 1
