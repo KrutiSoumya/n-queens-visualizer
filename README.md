@@ -14,7 +14,7 @@ An interactive tool to explore and understand the N-Queens problem through engag
 
 🛠️ Getting Started
 Clone the Repo
-git clone https://github.com/your-username/n-queens-visualiser.git
+git clone https://github.com/KrutiSoumya/n-queens-visualiser.git
 
 
 Launch in Browser
