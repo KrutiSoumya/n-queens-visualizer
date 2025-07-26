@@ -171,17 +171,23 @@ body.dark .slider-switch::before {
 
 .main-container {
   display: flex;
-  justify-content: space-around;
-  margin-top: 1em;
+  align-items: flex-start;
+  gap: 20px;
   padding: 1em;
   flex-wrap: wrap;
 }
 
 #n-queen-board {
+  flex: 1 1 600px;
+  max-width: 300px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 60%;
+  gap: 20px;
+  overflow-x: auto;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 #n-queen-board div {
@@ -216,14 +222,16 @@ h4 {
 /* Comment box */
 
 .comment-box {
-  max-height: 500px;
-  overflow-y: auto;
+  flex-shrink: 0;
   width: 300px;
+  max-height: 310px;
+  overflow-y: auto;
   border: 2px solid #ccc;
   padding: 1em;
   background-color: #fff;
   border-radius: 8px;
 }
+
 
 body.dark .comment-box {
   background-color: #2a2a2a;
@@ -256,4 +264,55 @@ body.dark .comment-entry.green {
 
 body.dark .comment-entry.red {
   background-color: #5c2f2f;
+}
+
+.inputbox {
+  margin: 1em auto;
+  position: relative;
+  width: 250px;
+}
+
+.inputbox input {
+  width: 100%;
+  padding: 8px 5px 5px;
+  border: none;
+  border-bottom: 2px solid #2ec4b6;
+  background: transparent;
+  color: inherit;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.inputbox label {
+  position: absolute;
+  top: 8px;
+  left: 0px;
+  color: #2ec4b6;
+  font-size: 14px;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.inputbox input:focus + label,
+.inputbox input:not(:placeholder-shown) + label {
+  top: -12px;
+  font-size: 12px;
+  background-color: inherit;
+  padding: 0 4px;
+}
+
+#n-queen-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* added spacing between boards */
+  max-width: 100%;
+}
+
+#n-queen-board div {
+  margin: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: #fff;
 }
