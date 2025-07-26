@@ -1,68 +1,37 @@
-# ♛ N-Queens Visualiser
+♛ N-Queens Visualiser
+An interactive tool to explore and understand the N-Queens problem through engaging animations and algorithmic insights.
 
-An interactive visualisation of the N-Queens problem using HTML, CSS, and JavaScript. This project helps you understand how the backtracking algorithm works by animating queen placements on a chessboard.
+🚀 Features
+- 🔢 Dynamic Board: Input N (1–8) and visualize queen placements
+- ⏯️ Play/Pause Controls: Watch the algorithm step through moves
+- 🐌 Speed Slider: Adjust animation speed to your comfort
+- 🌗 Light/Dark Mode: Toggle themes for better accessibility
+- 🟩🟥 Move Logging:
+- ✅ Green: accepted moves
+- ❌ Red: rejected moves
+- 📊 Progress Tracker: See how close you are to completion
+- 🧠 Solution Display: View all valid board configurations for N
 
----
-
-## 🚀 Features
-
-- 🔢 Input the number of queens (N) from 1 to 8
-- ⏯️ Play/Pause button to control the animation
-- 🐌 Adjustable speed using a slider
-- 🌙 Light/Dark mode toggle
-- 🟩🟥 Step-by-step move logging:
-  - ✅ Green = accepted move
-  - ❌ Red = rejected move
-- 📈 Visual progress bar showing completion percentage
-- 🧠 Displays all valid board arrangements for a given N
-
----
-
-## 📂 Project Structure
-├── index.html # Main HTML structure
-├── style.css # Styling for layout, animations, dark mode, etc.
-├── app.js # Core logic for solving and visualising N-Queens
-└── README.md # Project documentation
-
----
-
-## 🛠️ How to Run
-
-1. **Clone or Download** the repository:
+🛠️ Getting Started
+Clone the Repo
 git clone https://github.com/your-username/n-queens-visualiser.git
 
 
-2. Open `index.html` in any modern browser (Chrome recommended).
+Launch in Browser
+Open index.html in your favorite modern browser (Chrome recommended).
 
----
+📚 The N-Queens Problem
+The N-Queens challenge involves placing N queens on an N×N chessboard without any two threatening each other. That means:
+- No two queens in the same row, column, or diagonal
+This project demonstrates how recursive backtracking solves the problem by trying, validating, and backtracking moves to find all valid arrangements.
 
-## 📸 Preview
+✨ Built With
+- 💻 HTML, CSS, JavaScript
+- 🎨 Icons: Font Awesome
+- 🧠 Algorithm: Recursive Backtracking
 
-![N-Queens Visualiser Preview](https://your-image-link-here.com)  
-*(Add a preview screenshot or gif of the visualiser in action)*
+🙌 Author
+Designed and built with ❤️ by Kruti Soumya Panda
 
----
-
-## 📚 About the N-Queens Problem
-
-The N-Queens problem is the challenge of placing N chess queens on an N×N chessboard so that no two queens threaten each other. This means:
-- No two queens share the same row
-- No two queens share the same column
-- No two queens share the same diagonal
-
-This visualiser uses **recursive backtracking** to explore all possible configurations.
-
----
-
-## ✨ Credits
-
-- Designed and built by Kruti Soumya Panda
-- Icons by [Font Awesome](https://fontawesome.com/)
-
----
-
-## 📄 License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
-
+📄 License
+This project is licensed under the MIT License.
